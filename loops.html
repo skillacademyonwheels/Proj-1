@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Random Numbers Using Loops</h1>
+    <p id="demo"></p>
+
+    <script>
+         // Loops in JS
+            for (let i = 0; i < 10; i++) {
+                var randomnumber = Math.random();
+                var rounded_random = Math.round(randomnumber*100)
+                // document.getElementById("demo3").innerHTML = "Random Number Using Loops is: "+ rounded_random;
+
+                document.getElementById("demo").innerHTML += "Random Number Using Loops is: " + rounded_random +"<br>";
+            }
+    </script>
+</body>
+</html>

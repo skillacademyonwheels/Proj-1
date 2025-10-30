@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Project in JavaScript</h1>
+    <h2 id="demo"></h2>
+    <h2 id="demo1"></h2>
+    <h2 id="demo2"></h2>
+    <h2 id="demo3"></h2>
+
+    <script>
+        // Random Number Generator
+        var randomnumber = Math.random();
+        
+       
+
+        //Current Date in JS
+        const currentDate = new Date();
+        document.getElementById("demo").innerHTML = currentDate.toDateString();
+
+         // Print the Random Number
+         function getRandomNumber(){
+            var randomnumber = Math.random();
+            var rounded_random = Math.round(randomnumber*10)
+            document.getElementById("demo1").innerHTML = "The Random Number is :" + " " +rounded_random;
+           
+        }
+         setInterval(getRandomNumber, 1000);
+
+         // Round Numbers in Js
+         var num1 = 3.14;
+         var round1 = Math.round(num1);
+         document.getElementById("demo2").innerHTML = "The round off of 3.14 is: " + round1;
+
+         // Loops in JS
+         for(var i=0;i<10;i++){
+             var randomnumber = Math.random();
+             var rounded_random = Math.round(randomnumber * 10)
+            // document.getElementById("demo3").innerHTML = "Random Number Using Loops is: "+ rounded_random;
+
+            document.getElementById("demo3").innerHTML += "Random Number Using Loops is: " + rounded_random +"<br>";
+         }
+
+    </script>
+
+</body>
+</html>
