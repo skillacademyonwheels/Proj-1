@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <style>
+        body {
+            background: linear-gradient(to bottom right, lightblue, yellow);
+            background-repeat: no-repeat;
+            background-size: cover;
+            height: 200vw;
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+            font-size: 1.1 rem;
+        }
+
+        #myh1 {
+            margin: auto;
+            text-align: center;
+            background-color: aqua;
+            border: 2px solid red;
+        }
+
+        #demo {
+            background-color: aqua;
+            border: 1px solid black;
+            font-size: 1.2rem;
+        }
+    </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1 id="myh1">Sum of Arguments - After Class Project - v2</h1>
+    <br><br>
+    <div id="container">
+        <label class="box" class="mylabel">Input Angle 1</label>
+        <input type="number" value="0" class="myinput"> 
+        <button type="button" id ="addBtn" >+</button>
+        <button type="button" id ="remvBtn" aria-placeholder="Enter a Value">-</button>
+    </div>
+
+
+
+    <p id="demo"></p>
+    <script>
+          
+            // const addBtn = document.getElementById("addBtn");
+            // const row = document.getElementById("container");
+            // const display = document.getElementById("demo");
+            // const angleVal = [];
+
+            // addBtn.addEventListener("click",(e)=>{
+            //     const space = document.createElement("br");
+            //     const inputx = document.createElement("input");
+            //     inputx.classList.add("myinput");
+            //     inputx.placeholder = "Enter Angle Value";
+                
+                
+            //     row.appendChild(space);
+            //     row.appendChild(inputx);
+
+            //     display.innerHTML = e.target();
+
+            // });
+         
+            const addBtn = document.getElementById("addBtn");
+                const remvBtn = document.getElementById("remvBtn");
+                const container = document.getElementById("container");
+                const display = document.getElementById("demo");
+
+                function updateSum() {
+                    let sum = 0;
+                    container.querySelectorAll("input.myinput").forEach(inp => {
+                        sum += Number(inp.value) || 0;
+                    });
+                    display.textContent = "Sum: " + sum;
+                }
+
+                addBtn.addEventListener("click", () => {
+                    const br = document.createElement("br");
+                    br.className = "rowbreak";
+                    const input = document.createElement("input");
+                    input.type = "number";
+                    input.className = "myinput";
+                    input.placeholder = "Enter Angle Value";
+                    container.append(br, input);
+                    input.addEventListener("input", updateSum);
+                    updateSum();
+                });
+
+                remvBtn.addEventListener("click", () => {
+                    const inputs = container.querySelectorAll("input.myinput");
+                    if (inputs.length > 1) {                 // keep at least the first input
+                        inputs[inputs.length - 1].remove();    // remove last input
+                        const breaks = container.querySelectorAll("br.rowbreak");
+                        breaks[breaks.length - 1]?.remove();   // remove its preceding <br>
+                    }
+                    updateSum();
+                });
+
+                // live sum for the initial input
+                container.querySelector("input.myinput").addEventListener("input", updateSum);
+                updateSum();
+
+        
+
+       
+    </script>
+</body>
+
+</html>
